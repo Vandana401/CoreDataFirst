@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model List<CoreDataFirst.Models.Employee>
+
+
+
+    <table class="table tab-content table-bordered  table-hover">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Department</th>
+            <th>Salary</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Email</td>
+                <td>@item.Mobile</td>
+                <td>@item.Department</td>
+                <td>@item.Salary</td>
+
+                <td><a class="btn btn-primary" asp-action="Edit" asp-controller="Home" asp-route-id="@item.Id">Edit</a></td>
+                <td><a class="btn btn-danger" asp-action="Delete" asp-controller="Home" asp-route-id="@item.Id">Delete</a></td>
+            </tr>
+        }
+    </table>
+
+
+
